@@ -9,13 +9,13 @@ function getFiles(req, res, dir) {
   var query = req.query.path || '';
   var up = req.query.up;
 
-  if (query) {
+  if (query) { //clic sur un fichier, nouveau chemin dans le query.path.
     console.log('DOWN');
     currentDir = path.join(dir, query);
   }
 
   if (up) {
-    console.log('UP');
+    console.log('UP'); //clique sur la fleche UP, remonte dans l'arborescence via la fonction globale query.up.
     currentDir = query;
   }
 
