@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon.png">
+  <title>FanchFlix2</title>
+  <link rel="stylesheet" href="/lib/css/bootstrap.min.css"> <!--framework bootstrap -->
+  <link rel="stylesheet" href="/lib/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/css/app.css"> 
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <div class="page-header">
+        <h5>
+          <i class="fa fa-folder"></i>
+          <span data-bind="text: currentPath"></span> <!--//data-bind from knockoutjs. The header path .-->
+        </h5>
+      </div>    
+    </header>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="panel panel-default mainpanel">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-5">
+                <h3>
+                  <a href="#" data-bind="click: goUp"><i class="fa fa-level-up"></i></a>
+                  Explorateur
+                </h3>
+              </div>
+              <div class="col-xs-7">
+                <input type="search" class="form-control right" placeholder="Filter" data-bind="value: filter, valueUpdate: 'keyup'">    
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <ul data-bind="foreach: filteredFiles">
+            <li>
+              <a href="#" target="_blank" data-bind="click: $root.getDirectoryFiles, attr: {href: '/' + path}">
+                <i class="fa" data-bind="css: icon"></i>
+                <span data-bind="text: name"></span>
+              </a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <hr>
+      <a href="https://github.com/ianaya89/node-explorer" target="_blank">node-explorer</a> - by <a href="https://twitter.com/ianaya89" target="_blank">@ianaya89</a>
+    </footer>
+
+  </div>
+  <script src="/lib/js/jquery.min.js"></script>
+  <script src="/lib/js/knockout-min.js"></script>
+  <script src="/lib/js/app.js"></script>
+</body>
+</html>

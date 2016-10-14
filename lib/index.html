@@ -1,0 +1,81 @@
+<!--reglage du poster video a faire -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/tuto.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="../node_modules/video.js/dist/video-js.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="col-sm-12">
+                FanchFlix
+            </div>
+        </header>
+        <div class="row">
+            <nav class="col-md-3">
+                <h3>
+                  <a href="#" data-bind="click: goUp"><i class="fa fa-level-up"></i></a>
+                  Explorateur
+                </h3>
+                <ul data-bind="foreach: filteredFiles" class="list-group text-left ScrollStyle">
+                    <!-- affichage des fichiers -->
+                    <li class="list-group-item">
+                        <a href="#" data-bind="click: $root.getDirectoryFiles, attr: {href: '/' + path}">
+                            <!-- lance la fonction getDirectoryFiles qui envoie un nouvel argument au getFiles, les attributs /nom du fichier sont egalement envoyés.-->
+                            <i class="fa fa-2x" data-bind="css: icon"></i>
+                            <span data-bind="text: name"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <section class="col-md-9">
+                <ol class="breadcrumb" data-bind="foreach: pathArray">
+                    <!-- chemin des fichiers -->
+                    <li>
+                        <a href="#"><span data-bind="text: $data"></span></a>
+                    </li>
+                </ol>
+                <div class="row">
+                    <article class="col-md-7">
+                        <div align="center" class="embed-responsive embed-responsive-16by9">
+                            <video id="my-video" class="video-js embed-responsive-item vjs-big-play-centered" controls preload="auto" width="640" height="264" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" data-bind="attr: {src : cheminAbsolu}" autoplay loop>
+                                
+                                <p class="vjs-no-js">
+                                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                                </p>
+                                <track data-bind="attr: {src : cheminSRT}" kind="subtitles" label="SRT" >
+                            </video>
+                        </div>
+                    </article>
+                    <aside class="col-md-5">
+                        <img data-bind="attr: {src : dataImg }" width="150">
+                        <br>
+                        <h5><p data-bind="text: dataOverview"></p></h5>
+                    </aside>
+                </div>
+            </section>
+        </div>
+        <footer class="row">
+            <div class="col-sm-12">
+                Pied
+            </div>
+        </footer>
+    </div>
+    
+    <script type="text/javascript" src="/lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/js/knockout-min.js"></script>
+    <script type="text/javascript" src="/lib/js/app.js"></script>
+  
+
+    
+    <script type="text/javascript" src="../node_modules/video.js/dist/video.js"></script>
+    
+</body>
+
+</html>

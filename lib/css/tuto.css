@@ -1,0 +1,45 @@
+body {
+  padding-top: 10px;
+}
+[class*="col-"], footer {
+  background-color: lightgreen;
+  border: 2px solid black;
+  border-radius: 6px;
+  line-height: 40px;
+  text-align: center;
+}
+
+/* container : contient et centre la grille, adaptation a la largeur de l'écran */
+
+.container { 
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.ScrollStyle
+{
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+
+/* adaptation du container selon la largeur du medias */
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: auto;
+  }
+}
